@@ -1,0 +1,388 @@
+/* public/assets/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #1C1C1E; /* Dark card surface */
+    --secondary-color: #45E3D3; /* Cyan accent */
+    --secondary-hover: #32B8AB;
+    --bg-dark: #121212; /* Main dark background */
+    --text-main: #FFFFFF;
+    --text-muted: #8E8E93;
+    --border-color: #2C2C2E;
+    --success: #32D74B;
+    --danger: #FF453A;
+    --warning: #FF9F0A;
+    --info: #64D2FF;
+    --card-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    --radius: 20px;
+    --radius-sm: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--secondary-hover);
+}
+
+/* Header */
+.main-header {
+    background-color: var(--bg-dark);
+    color: white;
+    padding: 20px 0 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.logo i {
+    color: var(--secondary-color);
+    margin-right: 8px;
+}
+
+/* Desktop Nav */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.desktop-nav a {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.desktop-nav a:hover {
+    color: var(--secondary-color);
+}
+
+.user-greeting {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    background-image: url('https://ui-avatars.com/api/?name=User&background=45E3D3&color=000');
+    background-size: cover;
+}
+
+.greeting-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.greeting-text small {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.greeting-text strong {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px 20px 100px 20px; /* Extra bottom padding for mobile nav */
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background-color: var(--border-color);
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: #000;
+    border: none;
+}
+.btn-primary:hover { 
+    background-color: var(--secondary-hover); 
+    color: #000;
+}
+
+.btn-danger { background-color: var(--danger); color: white; border: none; }
+.btn-success { background-color: var(--success); color: #000; border: none; }
+
+/* Cards */
+.card {
+    background: var(--primary-color);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.card-header {
+    padding: 20px 24px 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.card.card-cyan {
+    background-color: var(--secondary-color);
+    color: #000;
+}
+.card.card-cyan .text-muted { color: rgba(0,0,0,0.6) !important; }
+.card.card-cyan h2, .card.card-cyan h4 { color: #000 !important; }
+
+/* Horizontal scrolling pills */
+.category-pills {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.category-pills::-webkit-scrollbar {
+    display: none;
+}
+
+.pill {
+    white-space: nowrap;
+    padding: 8px 20px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pill.active {
+    background-color: var(--secondary-color);
+    color: #000;
+    border-color: var(--secondary-color);
+}
+
+/* Image Cards (Nearby Salons) */
+.salon-card {
+    background: var(--primary-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--card-shadow);
+}
+.salon-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.salon-card-content {
+    padding: 16px;
+}
+.salon-card-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+.salon-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.rating {
+    color: var(--warning);
+    font-weight: 600;
+}
+
+/* Forms */
+.form-control {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border-color); }
+th { color: var(--text-muted); font-weight: 500; font-size: 0.85rem; }
+
+/* Utilities */
+.text-muted { color: var(--text-muted) !important; }
+.text-cyan { color: var(--secondary-color) !important; }
+.d-flex { display: flex; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+
+/* Section Titles */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.section-link {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+/* Mobile Bottom Nav - Floating Pill */
+.mobile-bottom-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    
+    .mobile-bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        max-width: 400px;
+        background-color: var(--primary-color); /* Dark grey pill */
+        border-radius: 50px;
+        padding: 8px 16px;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        z-index: 1000;
+        border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .mobile-bottom-nav a {
+        color: var(--text-muted);
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        font-size: 1.3rem;
+    }
+
+    .mobile-bottom-nav a.active,
+    .mobile-bottom-nav a:hover {
+        background-color: var(--secondary-color);
+        color: #000;
+    }
+    
+    .mobile-bottom-nav a span {
+        display: none; /* Only show icons */
+    }
+
+    .main-footer {
+        display: none;
+    }
+    
+    .greeting-text strong {
+        font-size: 1.1rem;
+    }
+}
